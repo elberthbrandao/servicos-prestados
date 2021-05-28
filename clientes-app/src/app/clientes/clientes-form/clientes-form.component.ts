@@ -40,8 +40,6 @@ export class ClientesFormComponent implements OnInit {
 
   onSubmit() {
     if(this.id){ 
-      console.log(this.id)
-      console.log(this.cliente)
       this.service.atualizar(this.cliente).subscribe(
         response => {
           this.success = true;
