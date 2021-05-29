@@ -9,11 +9,11 @@ import { environment } from '../environments/environment';
 })
 export class ServicoPrestadoService {
 
-  apiURL: string = environment.apiURLBase + '/api/servicos-prestados';
+  private apiURL: string = environment.apiURLBase + '/api/servicos-prestados';
 
   constructor(private http: HttpClient) { }
 
   salvar(servicoPrestado: ServicoPrestado) : Observable<ServicoPrestado>{
-    return this.http.post<ServicoPrestado>(`${this.apiURL}`, servicoPrestado);
+    return this.http.post<ServicoPrestado>(this.apiURL, servicoPrestado);
   }
 }
