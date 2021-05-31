@@ -19,13 +19,43 @@
                 </select>
             </div>
         </div>
-        <br/>
+        <br />
         <div class="row">
             <div class="col-md-3">
                 <button class="btn btn-primary" type="submit">
                     <i class="fa fa-search"></i> Consultar
                 </button>
+
+                <button class="btn btn-warning ml-1" type="button" routerLink="/servico-prestado-form">
+                    <i class="fa fa-plus"></i> Novo
+                </button>
             </div>
         </div>
     </form>
+    <br />
+    <div class="row">
+        <div class="alert alert-warning" role="alert" *ngIf="message">
+            {{ message }}
+        </div>
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let servico of lista">
+                        <td>{{ servico.cliente.nome }}</td>
+                        <td>{{ servico.descricao }}</td>
+                        <td>{{ servico.valor }}</td>
+                        <td>{{ servico.data }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
