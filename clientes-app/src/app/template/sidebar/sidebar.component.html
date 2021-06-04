@@ -6,24 +6,29 @@
         </div>
         <ul class="list-unstyled">
             <li class="active">
-                <a href="#clienteSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Clientes</a>
+                <a routerLink="/home" aria-expanded="false"><i class="fas fa-tachometer-alt"></i> Home</a>
+            </li>
+            <li class="active">
+                <a href="#clienteSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
+                        class="fas fa-columns"></i> Clientes</a>
                 <ul class="collapse list-unstyled" id="clienteSubmenu">
                     <li>
-                        <a routerLink="/clientes-lista">Consulta</a>
+                        <a routerLink="/clientes">Consulta</a>
                     </li>
                     <li>
-                        <a routerLink="/clientes-form">Cadastro</a>
+                        <a routerLink="/clientes/form">Cadastro</a>
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#servicoPrestadoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Serviços Prestados</a>
+            <li class="active">
+                <a href="#servicoPrestadoSubmenu" data-toggle="collapse" aria-expanded="false"
+                    class="dropdown-toggle"><i class="fas fa-address-card"></i> Serviços Prestados</a>
                 <ul class="collapse list-unstyled" id="servicoPrestadoSubmenu">
                     <li>
-                        <a routerLink="/servico-prestado-lista">Consulta</a>
+                        <a routerLink="/servicos-prestados">Consulta</a>
                     </li>
                     <li>
-                        <a routerLink="/servico-prestado-form">Cadastro</a>
+                        <a routerLink="/servicos-prestados/form">Cadastro</a>
                     </li>
                 </ul>
             </li>

@@ -1,23 +1,11 @@
-import { Component, AfterViewInit } from '@angular/core';
-
-import jQuery from 'jquery'
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
   title = 'clientes-app';
 
-  ngAfterViewInit(){
-    (function($) {
-        $(document).ready(function () {
-
-          $('#sidebarCollapse').on('click', function () {
-              $('#sidebar').toggleClass('active');
-          });
-      });
-    })(jQuery);
-  }
 }

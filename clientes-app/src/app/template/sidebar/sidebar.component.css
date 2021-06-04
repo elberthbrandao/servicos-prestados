@@ -68,6 +68,7 @@ a, a:hover, a:focus {
 }
 
 #sidebar .sidebar-header {
+    margin-top: 10px;
     padding: 20px;
     background: #1A1A1A;
 }
@@ -83,6 +84,7 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li a {
+    margin-left: 5px;
     padding: 10px;
     font-size: 1.1em;
     display: block;
@@ -92,6 +94,7 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
+    margin-top: 10px;
     color: #fff;
     background: #1A1A1A;
 }
