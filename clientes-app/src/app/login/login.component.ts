@@ -22,16 +22,25 @@ export class LoginComponent {
     private authService: AuthService
   ) { }
 
-  onSubmit(){
-    this.router.navigate(['/home'])
+  onSubmit() {
+    this.authService.tentarLogar(this.username, this.password)
+      .subscribe(
+        response => {
+          console.log(response)
+          this.router.navigate(['/home']);
+        },
+        errorResponse => {
+          this.errors = ['Usuário e/ou Senha incorretos.']
+        }
+      )
   }
 
-  preparaCadastrar(event){
+  preparaCadastrar(event) {
     event.preventDefault();
     this.cadastrando = true;
   }
 
-  cadastrar(){
+  cadastrar() {
     const usuario: Usuario = new Usuario();
     usuario.username = this.username;
     usuario.password = this.password;
