@@ -16,23 +16,33 @@ export class ClientesService {
     private http: HttpClient
   ) { }
 
-  salvar(cliente: Cliente) : Observable<Cliente> {
-    return this.http.post<Cliente>(this.apiURL, cliente);
+  salvar(cliente: Cliente): Observable<Cliente> {
+    const tokenString = localStorage.getItem('access_token');
+    const token = JSON.parse(tokenString);
+    const headers = {
+      'Authorization': 'Bearer ' + token.access_token
+    }
+    return this.http.post<Cliente>(this.apiURL, cliente, { headers });
   }
 
-  atualizar(cliente: Cliente) : Observable<any> {
+  atualizar(cliente: Cliente): Observable<any> {
     return this.http.put<Cliente>(`${this.apiURL}/${cliente.id}`, cliente);
   }
 
-  getClientes() : Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(this.apiURL);
+  getClientes(): Observable<Cliente[]> {
+    const tokenString = localStorage.getItem('access_token');
+    const token = JSON.parse(tokenString);
+    const headers = {
+      'Authorization': 'Bearer ' + token.access_token
+    }
+    return this.http.get<Cliente[]>(this.apiURL, { headers });
   }
 
-  getClienteById(id: number) : Observable<Cliente> {
+  getClienteById(id: number): Observable<Cliente> {
     return this.http.get<any>(`${this.apiURL}/${id}`);
   }
 
-  deletarCliente(cliente: Cliente) : Observable<any> {
+  deletarCliente(cliente: Cliente): Observable<any> {
     return this.http.delete<Cliente>(`${this.apiURL}/${cliente.id}`);
   }
 
