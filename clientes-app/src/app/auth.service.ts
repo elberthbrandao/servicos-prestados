@@ -22,18 +22,31 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
-  obterToken(){
+  obterToken() {
     const tokenString = localStorage.getItem('access_token');
-    if(tokenString){
+    if (tokenString) {
       const token = JSON.parse(tokenString).access_token;
       return token;
     }
     return null;
   }
 
+  encerrarSessao() {
+    localStorage.removeItem('access_token');
+  }
+
+  getUsuarioAutenticado() {
+    const token = this.obterToken();
+    if (token) {
+      const usuario = this.jwtHelper.decodeToken(token).user_name;
+      return usuario;
+    }
+    return null;
+  }
+
   isAuthenticated(): boolean {
     const token = this.obterToken();
-    if(token){
+    if (token) {
       const expireted = this.jwtHelper.isTokenExpired(token);
       return !expireted;
     }

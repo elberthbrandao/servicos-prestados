@@ -1,5 +1,4 @@
 <div class="wrapper">
-    <!-- Sidebar -->
     <nav id="sidebar">
         <div class="sidebar-header">
             <h3>Meus Clientes</h3>
@@ -31,6 +30,10 @@
                         <a routerLink="/servicos-prestados/form">Cadastro</a>
                     </li>
                 </ul>
+            </li>
+            <li class="active">
+                <a routerLink="/home" (click)="logout()" aria-expanded="false"><i class="fas fa-sign-out-alt"></i>
+                    Sair</a>
             </li>
         </ul>
     </nav>
